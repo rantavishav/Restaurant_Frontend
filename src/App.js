@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { guestRoutes } from "./routes/MainRoutes";
 import { Loader } from "./components";
 
@@ -21,7 +21,7 @@ function App() {
             ></Route>
           )
       )}
-      <Route path="/*" element={<Loader />}></Route>
+      <Route path="/*" element={<Navigate to="/" />} />
     </>
   );
   return (
