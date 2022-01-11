@@ -2,7 +2,7 @@ import React from "react";
 
 export const guestRoutes = [
   {
-    path: "/",
+    path: "/admin",
     name: "Signin",
     exact: true,
     component: React.lazy(() => import("../views/admin/auth/index.jsx")),

@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { guestRoutes } from "./routes/MainRoutes";
 import { Loader } from "./components";
-// import LoginContainer from "./views/admin/auth";
 
 function App() {
   const mainContent = (
@@ -22,6 +21,7 @@ function App() {
             ></Route>
           )
       )}
+      <Route path="/*" element={<Loader />}></Route>
     </>
   );
   return (
