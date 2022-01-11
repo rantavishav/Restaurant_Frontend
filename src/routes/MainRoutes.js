@@ -23,11 +23,11 @@ export const guestRoutes = [
   //     import("../views/admin/auth/resetPassword.jsx")
   //   ),
   // },
-  // {
-  //   redirectRoute: true,
-  //   name: "Login",
-  //   path: "/",
-  // },
+  {
+    redirectRoute: true,
+    name: "Signin",
+    path: "/",
+  },
 ];
 
 // export const userRoutes = [
