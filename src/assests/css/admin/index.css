@@ -1,6 +1,7 @@
 /* ______________________________________________ */
-/* _______________ADMIN_LOGIN_SCREEN____________ */
+/* _______________ADMIN_HEADER_SCREEN____________ */
 /* ______________________________________________ */
+
 .main-container {
   width: 100%;
   height: 100vh;
@@ -41,7 +42,7 @@
   width: 70%;
   padding: 15px;
   margin: 22px 0 5px 0;
-  border-radius: 10px;
+  border-radius: 5px;
   outline: 0px;
   border: none;
   background: var(--input-background);
@@ -129,3 +130,154 @@
 /* ______________________________________________ */
 /* _______________ADMIN_LAYOUT____________ */
 /* ______________________________________________ */
+.admin-main-page {
+  background: var(--admin-main-pages-background);
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+.admin-header-container {
+  position: absolute;
+  left: 25%;
+  width: 65%;
+  padding: 1% 5% 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+.admin-search-container {
+  text-align: left;
+  width: 60%;
+  position: relative;
+}
+.admin-search-container input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  outline: 0px;
+  border: none;
+  background: var(--white);
+  color: var(--grey);
+}
+.admin-search-container .search-img {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  width: 20px;
+}
+.admin-header-icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 10%;
+}
+.admin-header-icons img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.admin-header-icons img:hover {
+  filter: invert(1000%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+.vertical-line {
+  width: 1px;
+  height: 30px;
+  background-color: var(--black);
+}
+.admin-header-user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17%;
+}
+.admin-header-user-info .profile-name-text {
+  font-weight: 600;
+}
+.admin-header-profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* ______________________________________________ */
+/* _______________ADMIN_LEFT_SIDEBAR____________ */
+/* ______________________________________________ */
+
+.admin-left-sidebar {
+  position: absolute;
+  width: 15%;
+  padding: 2% 5% 0 5%;
+  background-color: var(--white);
+  min-height: 95%;
+}
+.admin-sidebar-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 5%;
+}
+.admin-sidebar-header img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.admin-sidebar-header .admin-sidebar-header-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: var(--grey);
+  margin-bottom: 10px;
+}
+.admin-sidebar-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 5%;
+}
+.admin-sidebar-item {
+  width: 100%;
+  padding: 5% 10%;
+  cursor: pointer;
+  border-radius: 10px;
+  color: var(--dark-grey);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.admin-sidebar-item:first-child {
+  margin-top: 10px;
+}
+.admin-sidebar-item:hover,
+.admin-sidebar-item.active {
+  background-color: var(--hover-green);
+  color: var(--hover-text-green);
+}
+.admin-sidebar-item:hover img,
+.admin-sidebar-item.active img {
+  filter: invert(1000%) sepia(51%) saturate(28878%) hue-rotate(346deg) brightness(104%)
+    contrast(97%);
+}
+.admin-sidebar-item a {
+  color: inherit !important;
+  display: flex;
+  align-items: center;
+}
+.admin-sidebar-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+/* ______________________________________________ */
+/* _______________ADMIN_LAYOUT___________ */
+/* ______________________________________________ */
+.admin-main-content {
+  position: absolute;
+  top: 8%;
+  left: 25%;
+  width: 65%;
+  /* min-height: 76%; */
+  padding: 2% 5% 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}

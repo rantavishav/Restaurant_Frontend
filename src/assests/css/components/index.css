@@ -1,6 +1,6 @@
 /* __________LOADER_________ */
 .loader-container {
-  background: #6a1b9a;
+  background: var(--admin-main-pages-background);
   height: 100vh;
   margin: 0;
   display: flex;
