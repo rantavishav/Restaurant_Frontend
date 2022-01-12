@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import {
   DASHBOARD_ANALYSIS_SVG,
   DASHBOARD_CUSTOMER_SVG,
@@ -11,67 +11,86 @@ import {
   WEBSITE_LOGO_SVG,
 } from '../../../assests/images';
 
-const adminSidebar = () => (
-  <div className="admin-left-sidebar">
-    <div className="admin-sidebar-header">
-      <img src={WEBSITE_LOGO_SVG} alt="website logo" />
-      <div className="admin-sidebar-header-title">Kitchen Admin Dashboard</div>
-    </div>
-    <ul className="admin-sidebar-items">
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+const adminSidebar = () => {
+  const history = useHistory();
+  const { pathname } = history.location;
+
+  return (
+    <div className="admin-left-sidebar">
+      <div className="admin-sidebar-header">
+        <img src={WEBSITE_LOGO_SVG} alt="website logo" />
+        <div className="admin-sidebar-header-title">Kitchen Admin Dashboard</div>
+      </div>
+      <div className="admin-sidebar-items">
+        <Link
+          to="/admin/dashboard"
+          className={`admin-sidebar-item ${pathname.includes('/dashboard') && 'active'}`}
+        >
           <img src={DASHBOARD_HOME_SVG} alt="dashboard" />
           <div className="admin-sidebar-item-title">Dashboard</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+
+        <Link
+          to="/admin/orderList"
+          className={`admin-sidebar-item ${pathname.includes('/orderList') && 'active'}`}
+        >
           <img src={DASHBOARD_LIST_SVG} alt="dashboard" />
 
           <div className="admin-sidebar-item-title">Order List</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+
+        <Link
+          to="/admin/customer"
+          className={`admin-sidebar-item ${pathname.includes('/customer') && 'active'}`}
+        >
           <img src={DASHBOARD_CUSTOMER_SVG} alt="dashboard" />
 
           <div className="admin-sidebar-item-title">Customer</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+
+        <Link
+          to="/admin/analysis"
+          className={`admin-sidebar-item ${pathname.includes('/analysis') && 'active'}`}
+        >
           <img src={DASHBOARD_ANALYSIS_SVG} alt="dashboard" />
 
           <div className="admin-sidebar-item-title">Analysis</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link href="/admin/dashboard">
+
+        <Link
+          to="/admin/reviews"
+          className={`admin-sidebar-item ${pathname.includes('/reviews') && 'active'}`}
+        >
           <img src={DASHBOARD_REVIEW_SVG} alt="dashboard" />
 
           <div className="admin-sidebar-item-title">Reviews</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+
+        <Link
+          to="/admin/foods"
+          className={`admin-sidebar-item ${pathname.includes('/foods') && 'active'}`}
+        >
           <img src={DASHBOARD_FOOD_SVG} alt="dashboard" />
           <div className="admin-sidebar-item-title">Foods</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+
+        <Link
+          to="/admin/foodDetails"
+          className={`admin-sidebar-item ${pathname.includes('/foodDetails') && 'active'}`}
+        >
           <img src={DASHBOARD_FOOD_DETAIL_SVG} alt="dashboard" />
           <div className="admin-sidebar-item-title">Food Details</div>
         </Link>
-      </li>
-      <li className="admin-sidebar-item">
-        <Link to="/admin/dashboard">
+
+        <Link
+          to="/admin/wallet"
+          className={`admin-sidebar-item ${pathname.includes('/wallet') && 'active'}`}
+        >
           <img src={DASHBOARD_WALLET_SVG} alt="dashboard" />
           <div className="admin-sidebar-item-title">Wallet</div>
         </Link>
-      </li>
-    </ul>
-  </div>
-);
-
+      </div>
+    </div>
+  );
+};
 export default adminSidebar;

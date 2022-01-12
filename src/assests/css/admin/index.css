@@ -240,15 +240,19 @@
   border-radius: 10px;
   color: var(--dark-grey);
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 .admin-sidebar-item:first-child {
   margin-top: 10px;
 }
-.admin-sidebar-item:hover {
+.admin-sidebar-item:hover,
+.admin-sidebar-item.active {
   background-color: var(--hover-green);
   color: var(--hover-text-green);
 }
-.admin-sidebar-item:hover img {
+.admin-sidebar-item:hover img,
+.admin-sidebar-item.active img {
   filter: invert(1000%) sepia(51%) saturate(28878%) hue-rotate(346deg) brightness(104%)
     contrast(97%);
 }
