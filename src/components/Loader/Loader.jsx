@@ -1,26 +1,24 @@
-import { useEffect } from "react";
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-bitwise */
+/* eslint-disable no-multi-assign */
+/* eslint-disable react/no-this-in-sfc */
+import { useEffect } from 'react';
 
 const Loader = () => {
   const loaderFunction = () => {
-    "use strict";
-
-    let toRadians = (deg) => (deg * Math.PI) / 180;
-    let map = (val, a1, a2, b1, b2) =>
-      b1 + ((val - a1) * (b2 - b1)) / (a2 - a1);
+    const toRadians = deg => (deg * Math.PI) / 180;
+    const map = (val, a1, a2, b1, b2) => b1 + ((val - a1) * (b2 - b1)) / (a2 - a1);
 
     class Pizza {
       constructor(id) {
         this.canvas = document.getElementById(id);
-        this.ctx = this.canvas.getContext("2d");
+        this.ctx = this.canvas.getContext('2d');
 
         this.sliceCount = 6;
         this.sliceSize = 80;
 
-        this.width =
-          this.height =
-          this.canvas.height =
-          this.canvas.width =
-            this.sliceSize * 2 + 50;
+        this.width = this.height = this.canvas.height = this.canvas.width = this.sliceSize * 2 + 50;
         this.center = (this.height / 2) | 0;
 
         this.sliceDegree = 360 / this.sliceCount;
@@ -30,11 +28,10 @@ const Loader = () => {
       }
 
       update() {
-        let ctx = this.ctx;
+        const { ctx } = this;
         ctx.clearRect(0, 0, this.width, this.height);
 
-        if (--this.cooldown < 0)
-          this.progress += this.sliceRadians * 0.01 + this.progress * 0.07;
+        if (--this.cooldown < 0) this.progress += this.sliceRadians * 0.01 + this.progress * 0.07;
 
         ctx.save();
         ctx.translate(this.center, this.center);
@@ -42,11 +39,11 @@ const Loader = () => {
         for (let i = this.sliceCount - 1; i > 0; i--) {
           let rad;
           if (i === this.sliceCount - 1) {
-            let ii = this.sliceCount - 1;
+            const ii = this.sliceCount - 1;
 
             rad = this.sliceRadians * i + this.progress;
 
-            ctx.strokeStyle = "#FBC02D";
+            ctx.strokeStyle = '#FBC02D';
             cheese(ctx, rad, 0.9, ii, this.sliceSize, this.sliceDegree);
             cheese(ctx, rad, 0.6, ii, this.sliceSize, this.sliceDegree);
             cheese(ctx, rad, 0.5, ii, this.sliceSize, this.sliceDegree);
@@ -55,19 +52,19 @@ const Loader = () => {
 
           // border
           ctx.beginPath();
-          ctx.lineCap = "butt";
+          ctx.lineCap = 'butt';
           ctx.lineWidth = 11;
           ctx.arc(0, 0, this.sliceSize, rad, rad + this.sliceRadians);
-          ctx.strokeStyle = "#F57F17";
+          ctx.strokeStyle = '#F57F17';
           ctx.stroke();
 
           // slice
-          let startX = this.sliceSize * Math.cos(rad);
-          let startY = this.sliceSize * Math.sin(rad);
+          const startX = this.sliceSize * Math.cos(rad);
+          const startY = this.sliceSize * Math.sin(rad);
           //   let endX = this.sliceSize * Math.cos(rad + this.sliceRadians)
           //   let endY = this.sliceSize * Math.sin(rad + this.sliceRadians)
           //   let varriation = [0.9,0.7,1.1,1.2]
-          ctx.fillStyle = "#FBC02D";
+          ctx.fillStyle = '#FBC02D';
           ctx.beginPath();
           ctx.moveTo(0, 0);
           ctx.lineTo(startX, startY);
@@ -79,11 +76,11 @@ const Loader = () => {
           ctx.stroke();
 
           // meat
-          let x = this.sliceSize * 0.65 * Math.cos(rad + this.sliceRadians / 2);
-          let y = this.sliceSize * 0.65 * Math.sin(rad + this.sliceRadians / 2);
+          const x = this.sliceSize * 0.65 * Math.cos(rad + this.sliceRadians / 2);
+          const y = this.sliceSize * 0.65 * Math.sin(rad + this.sliceRadians / 2);
           ctx.beginPath();
           ctx.arc(x, y, this.sliceDegree / 6, 0, 2 * Math.PI);
-          ctx.fillStyle = "#D84315";
+          ctx.fillStyle = '#D84315';
           ctx.fill();
         }
 
@@ -101,19 +98,19 @@ const Loader = () => {
     }
 
     function cheese(ctx, rad, multi, ii, sliceSize, sliceDegree) {
-      let x1 = sliceSize * multi * Math.cos(toRadians(ii * sliceDegree) - 0.2);
-      let y1 = sliceSize * multi * Math.sin(toRadians(ii * sliceDegree) - 0.2);
-      let x2 = sliceSize * multi * Math.cos(rad + 0.2);
-      let y2 = sliceSize * multi * Math.sin(rad + 0.2);
+      const x1 = sliceSize * multi * Math.cos(toRadians(ii * sliceDegree) - 0.2);
+      const y1 = sliceSize * multi * Math.sin(toRadians(ii * sliceDegree) - 0.2);
+      const x2 = sliceSize * multi * Math.cos(rad + 0.2);
+      const y2 = sliceSize * multi * Math.sin(rad + 0.2);
 
-      let csx = sliceSize * Math.cos(rad);
-      let csy = sliceSize * Math.sin(rad);
+      const csx = sliceSize * Math.cos(rad);
+      const csy = sliceSize * Math.sin(rad);
 
-      var d = Math.sqrt((x1 - csx) * (x1 - csx) + (y1 - csy) * (y1 - csy));
+      const d = Math.sqrt((x1 - csx) * (x1 - csx) + (y1 - csy) * (y1 - csy));
       ctx.beginPath();
-      ctx.lineCap = "round";
+      ctx.lineCap = 'round';
 
-      let percentage = map(d, 15, 70, 1.2, 0.2);
+      const percentage = map(d, 15, 70, 1.2, 0.2);
 
       let tx = x1 + (x2 - x1) * percentage;
       let ty = y1 + (y2 - y1) * percentage;
@@ -129,7 +126,7 @@ const Loader = () => {
       ctx.stroke();
     }
 
-    let pizza = new Pizza("pizza");
+    const pizza = new Pizza('pizza');
 
     (function update() {
       requestAnimationFrame(update);

@@ -1,13 +1,13 @@
-import * as Yup from "yup";
-import { Formik } from "formik";
-import {
-  ADMIN_PASSWORD_REQUIRED,
-  ADMIN_USERNAME_REQUIRED,
-} from "../../../constants";
+import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
+import { ADMIN_PASSWORD_REQUIRED, ADMIN_USERNAME_REQUIRED } from '../../../constants';
+import { login } from '../../../store/actions';
 
-const AdminLogin = (props) => {
+const AdminLogin = props => {
   // eslint-disable-next-line react/prop-types
   const { setScreenName } = props;
+  const dispatch = useDispatch();
   const validationSchema = Yup.object({
     userName: Yup.string().required(ADMIN_USERNAME_REQUIRED),
     password: Yup.string().required(ADMIN_PASSWORD_REQUIRED),
@@ -18,14 +18,13 @@ const AdminLogin = (props) => {
       <div className="main-wrapper">
         <div className="page-title">
           <h2>Admin Login</h2>
-          <div className="forgot-password-heading">
-            Just login you little piece of shit.
-          </div>
+          <div className="forgot-password-heading">Just login you little piece of shit.</div>
         </div>
         <Formik
-          initialValues={{ userName: "", password: "" }}
-          onSubmit={(values) => {
-            console.log("values", values);
+          initialValues={{ userName: '', password: '' }}
+          onSubmit={values => {
+            console.log('values', values);
+            dispatch(login({ token: values.password }));
           }}
           validationSchema={validationSchema}
         >
@@ -70,7 +69,7 @@ const AdminLogin = (props) => {
                 <button
                   type="button"
                   className="forgot-password-btn"
-                  onClick={() => setScreenName("FORGOT_PASSWORD")}
+                  onClick={() => setScreenName('FORGOT_PASSWORD')}
                 >
                   Forgot Password?
                 </button>

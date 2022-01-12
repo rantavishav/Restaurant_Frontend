@@ -1,15 +1,15 @@
-import * as Yup from "yup";
-import { Formik } from "formik";
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 import {
   ADMIN_PASSWORD_REQUIRED,
   CONFIRM_PASSWORD_REQUIRED,
   PASSWORD_VALID,
   PASSWORD_VALIDATION,
   SET_PASSWORDS_NOT_MATCH,
-} from "../../../constants";
-import { BACKARROW_SVG } from "../../../assests/images";
+} from '../../../constants';
+import { BACKARROW_SVG } from '../../../assests/images';
 
-const ResetPassword = (props) => {
+const ResetPassword = props => {
   // eslint-disable-next-line react/prop-types
   const { setScreenName } = props;
   const validationSchema = Yup.object({
@@ -25,26 +25,24 @@ const ResetPassword = (props) => {
       .matches(/[^a-zA-Z0-9.]/, PASSWORD_VALIDATION)
       .required(ADMIN_PASSWORD_REQUIRED),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], SET_PASSWORDS_NOT_MATCH)
+      .oneOf([Yup.ref('password'), null], SET_PASSWORDS_NOT_MATCH)
       .required(CONFIRM_PASSWORD_REQUIRED),
   });
 
   return (
     <div className="main-container">
-      <div className="back-button" onClick={() => setScreenName("LOGIN")}>
+      <button type="button" className="back-button div-type" onClick={() => setScreenName('LOGIN')}>
         <img src={BACKARROW_SVG} alt="back button" />
-      </div>
+      </button>
       <div className="main-wrapper">
         <div className="page-title">
           <h2>Reset Password</h2>
-          <div className="forgot-password-heading">
-            Yeee you can reset your password here.
-          </div>
+          <div className="forgot-password-heading">Yeee you can reset your password here.</div>
         </div>
         <Formik
-          initialValues={{ userName: "", password: "" }}
-          onSubmit={(values) => {
-            console.log("values", values);
+          initialValues={{ userName: '', password: '' }}
+          onSubmit={values => {
+            console.log('values', values);
           }}
           validationSchema={validationSchema}
         >
@@ -82,9 +80,7 @@ const ResetPassword = (props) => {
               />
               <div className="form-error">
                 <div className="error-message">
-                  {errors.confirmPassword &&
-                    touched.confirmPassword &&
-                    errors.confirmPassword}
+                  {errors.confirmPassword && touched.confirmPassword && errors.confirmPassword}
                 </div>
               </div>
               <button type="submit" name="submit" className="submit-btn">
