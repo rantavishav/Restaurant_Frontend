@@ -1,32 +1,30 @@
-import React from "react";
+import React from 'react';
 
+// eslint-disable-next-line import/prefer-default-export
 export const guestRoutes = [
   {
-    path: "/",
-    name: "Signin",
+    path: '/',
+    name: 'Signin',
     exact: true,
-    component: React.lazy(() => import("../views/admin/auth/index.jsx")),
+    component: React.lazy(() => import('../views/admin/auth/index')),
   },
-  // {
-  //   path: "/forgot-password",
-  //   name: "Forgot Password",
-  //   exact: true,
-  //   component: React.lazy(() =>
-  //     import("../views/admin/auth/forgotPassword.jsx")
-  //   ),
-  // },
-  // {
-  //   path: "/reset-password",
-  //   name: "Reset Password",
-  //   exact: true,
-  //   component: React.lazy(() =>
-  //     import("../views/admin/auth/resetPassword.jsx")
-  //   ),
-  // },
   {
     redirectRoute: true,
-    name: "Signin",
-    path: "/",
+    name: 'Signin',
+    path: '/',
+  },
+];
+export const adminInnerRoutes = [
+  {
+    path: '/admin/dashboard',
+    name: 'Admin Dashboard',
+    exact: true,
+    component: React.lazy(() => import('../views/admin/pages/dashboard')),
+  },
+  {
+    redirectRoute: true,
+    name: 'Admin Dashboard',
+    path: '/admin/dashboard',
   },
 ];
 

@@ -1,0 +1,15 @@
+:root {
+  --main-background: #d4c9eb;
+  --input-background: #224957;
+  --submit-background: #20df7f;
+  --error-msg: #ff0000;
+  --link: #0000ff;
+  --white: #ffffff;
+  --black: #000000;
+  --grey: #828282;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}

@@ -1,22 +1,21 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
-import OtpInput from "react-otp-input";
-import { Backdrop, Box, Fade, Modal, Typography } from "@mui/material";
+import { useState } from 'react';
+import OtpInput from 'react-otp-input';
+import { Backdrop, Box, Fade, Modal, Typography } from '@mui/material';
 
-const ResetPasswordOtp = (props) => {
-  const { handleClose, setScreenName } = props;
-  const [value, setValue] = useState("");
+const ResetPasswordOtp = props => {
+  const { handleClose, setScreenName, open } = props;
+  const [value, setValue] = useState('');
   const [optError, setOtpError] = useState(false);
 
   const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: "background.paper",
-    border: "3px solid #fff",
-    borderRadius: "5px",
+    bgcolor: 'background.paper',
+    border: '3px solid #fff',
+    borderRadius: '5px',
     boxShadow: 24,
     p: 4,
   };
@@ -46,12 +45,12 @@ const ResetPasswordOtp = (props) => {
           <form
             className="forgot-otp-box"
             noValidate
-            onSubmit={(e) => {
+            onSubmit={e => {
               e.preventDefault();
               if (value.length === 4) {
-                console.log("success", value);
+                console.log('success', value);
                 handleClose();
-                setScreenName("RESET_PASSWORD");
+                setScreenName('RESET_PASSWORD');
               } else {
                 setOtpError(true);
               }
@@ -59,7 +58,7 @@ const ResetPasswordOtp = (props) => {
           >
             <OtpInput
               value={value}
-              onChange={(e) => {
+              onChange={e => {
                 setValue(e);
                 setOtpError(false);
               }}
@@ -68,13 +67,13 @@ const ResetPasswordOtp = (props) => {
               inputStyle={{
                 padding: 10,
                 marginRight: 10,
-                border: "2px solid #0000ff",
+                border: '2px solid #0000ff',
                 borderRadius: 15,
                 width: 45,
                 height: 45,
               }}
               errorStyle={{
-                borderColor: "#c52626",
+                borderColor: '#c52626',
               }}
               shouldAutoFocus
               isInputNum
